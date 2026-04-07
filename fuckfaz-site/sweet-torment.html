@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Sweet Torment - FuckFaz Studios</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/jpeg" href="images/age_warning.jpeg">
+    <style>
+        .screenshots {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .screenshots img {
+            width: 100%;
+            border-radius: 15px;
+            border: 1px solid #ff00aa33;
+            transition: 0.3s;
+        }
+        .screenshots img:hover {
+            transform: scale(1.02);
+            border-color: #ff00aa;
+        }
+        .info-block {
+            background: rgba(0,0,0,0.4);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .info-block h3 {
+            color: #ff00aa;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        .info-block ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .info-block li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .info-block li::before {
+            content: "►";
+            color: #ff00aa;
+            position: absolute;
+            left: 0;
+        }
+        .location-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .location-card {
+            background: rgba(0,0,0,0.5);
+            border-radius: 12px;
+            padding: 15px;
+            border-left: 3px solid #ff00aa;
+        }
+        .location-card h4 {
+            color: #ff88cc;
+            margin-bottom: 8px;
+        }
+        .location-card p {
+            font-size: 13px;
+            color: #ccc;
+            margin-bottom: 5px;
+        }
+        .location-card .characters {
+            font-size: 12px;
+            color: #ff00aa;
+            margin-top: 8px;
+        }
+        .sys-req {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 15px;
+        }
+        .sys-req div {
+            flex: 1;
+            min-width: 200px;
+        }
+        .sys-req h4 {
+            color: #ff00aa;
+            margin-bottom: 10px;
+        }
+        .sys-req p {
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+        .platform-title {
+            color: #ff88cc;
+            margin: 20px 0 10px 0;
+            font-size: 18px;
+        }
+        .download-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .download-btn {
+            display: inline-block;
+            background: #ff00aa;
+            padding: 15px 50px;
+            border-radius: 50px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+        .download-btn:hover {
+            background: #ff44cc;
+            transform: scale(1.02);
+        }
+        .coming-soon {
+            background: #555 !important;
+            cursor: not-allowed !important;
+        }
+        .coming-soon:hover {
+            background: #555 !important;
+            transform: none !important;
+        }
+        @media (max-width: 768px) {
+            .location-list {
+                grid-template-columns: 1fr;
+            }
+            .sys-req {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    
+    <div class="container">
+        <header>
+            <img src="images/studio_logo.jpeg" alt="FuckFaz Studios" class="logo">
+            <nav>
+                <a href="index.html" data-ru="Главная" data-en="Home">Home</a>
+                <a href="games.html" data-ru="Игры" data-en="Games">Games</a>
+                <a href="gallery.html" data-ru="Галерея" data-en="Gallery">Gallery</a>
+                <a href="#support" class="support-btn" data-ru="Поддержать" data-en="Support">Support</a>
+                <div class="lang-switch">
+                    <button onclick="setLang('ru')" class="lang-btn ru">RU</button>
+                    <button onclick="setLang('en')" class="lang-btn en">EN</button>
+                </div>
+            </nav>
+        </header>
+        
+        <main>
+            <h1 data-ru="Sweet Torment" data-en="Sweet Torment">Sweet Torment</h1>
+            
+            <!-- Баннер/арт -->
+            <div class="game-detail" style="margin-bottom: 30px;">
+                <img src="images/sweet_torment_art.jpeg" alt="Sweet Torment" style="max-width: 350px;">
+                <div class="game-info">
+                    <p><strong data-ru="Жанр:" data-en="Genre:">Genre:</strong> <span data-ru="Кооперативный хоррор, стелс, симулятор свиданий, шутер" data-en="Co-op horror, stealth, dating sim, shooter">Co-op horror, stealth, dating sim, shooter</span></p>
+                    <p><strong data-ru="Платформы:" data-en="Platform:">Platform:</strong> PC Windows, Android</p>
+                    <p><strong data-ru="Мультиплеер:" data-en="Multiplayer:">Multiplayer:</strong> LAN co-op (2-4 игрока)</p>
+                    <p><strong data-ru="Статус:" data-en="Status:">Status:</strong> <span data-ru="В активной разработке" data-en="In active development">In active development</span></p>
+                    <p data-ru="Sweet Torment — кооперативный хоррор с эротическим уклоном. Вы и ваши друзья попадаете в разные локации, где нужно выживать, собирать предметы и не попадаться монстрихам. Если поймают — запускается сцена. Игра поддерживает LAN-мультиплеер, так что можно играть с друзьями по сети." data-en="Sweet Torment is a co-op horror with an erotic twist. You and your friends find yourselves in different locations where you need to survive, collect items, and avoid being caught by the monsters. If caught — a scene triggers. LAN multiplayer supported.">Sweet Torment is a co-op horror with an erotic twist. You and your friends find yourselves in different locations where you need to survive, collect items, and avoid being caught by the monsters. If caught — a scene triggers. LAN multiplayer supported.</p>
+                </div>
+            </div>
+            
+            <!-- Описание механик -->
+            <div class="info-block">
+                <h3 data-ru="🎮 Основные механики" data-en="🎮 Core Mechanics">🎮 Core Mechanics</h3>
+                <ul>
+                    <li data-ru="Стелс — прячься в тени, не шуми, не попадайся на глаза" data-en="Stealth — hide in shadows, don't make noise, avoid eye contact">Stealth — hide in shadows, don't make noise, avoid eye contact</li>
+                    <li data-ru="Сбор ключей/предметов — найди 3 ключа, чтобы открыть выход" data-en="Collect keys/items — find 3 keys to open the exit">Collect keys/items — find 3 keys to open the exit</li>
+                    <li data-ru="У каждой монстрихи своя механика: реакция на свет, шум, запах и т.д." data-en="Each monster has unique mechanics: reacts to light, sound, smell, etc.">Each monster has unique mechanics: reacts to light, sound, smell, etc.</li>
+                    <li data-ru="При поимке запускается сцена с анимацией и озвучкой" data-en="When caught, a scene with animation and voiceover triggers">When caught, a scene with animation and voiceover triggers</li>
+                    <li data-ru="Рандомный выбор уровня при каждом запуске" data-en="Random level selection on each launch">Random level selection on each launch</li>
+                    <li data-ru="LAN кооператив — играй с друзьями, спасай друг друга" data-en="LAN co-op — play with friends, save each other">LAN co-op — play with friends, save each other</li>
+                </ul>
+            </div>
+            
+            <!-- Локации -->
+            <div class="info-block">
+                <h3 data-ru="🏰 Локации (12 основных + бонус)" data-en="🏰 Locations (12 main + bonus)">🏰 Locations (12 main + bonus)</h3>
+                <div class="location-list">
+                    <div class="location-card">
+                        <h4>Готический особняк</h4>
+                        <p data-ru="Стелс-хоррор. Луна (реакция на свет), Хорнет (реакция на шум), Baller Fox" data-en="Stealth horror. Loona (light reaction), Hornet (sound reaction), Baller Fox">Stealth horror. Loona (light reaction), Hornet (sound reaction), Baller Fox</p>
+                        <div class="characters">👥 Loona, Hornet, Baller Fox</div>
+                    </div>
+                    <div class="location-card">
+                        <h4>Security Breach</h4>
+                        <p data-ru="Стелс-экшн. Система шума. Roxanne, Glamrock Chica, Monty, Freddy, Vanny" data-en="Stealth action. Noise system. Roxanne, Glamrock Chica, Monty, Freddy, Vanny">Stealth action. Noise system. Roxanne, Glamrock Chica, Monty, Freddy, Vanny</p>
+                        <div class="characters">👥 Roxanne, Glamrock Chica, Monty, Freddy, Vanny</div>
+                    </div>
+                    <div class="location-card">
+                        <h4>Тыквенная плантация</h4>
+                        <p data-ru="Стелс + головоломка. Spice (3 фазы: обычная, голова, скелет). Сбор тыкв" data-en="Stealth + puzzle. Spice (3 phases). Pumpkin collecting">Stealth + puzzle. Spice (3 phases). Pumpkin collecting</p>
+                        <div class="characters">👥 Spice</div>
+                    </div>
+                    <div class="location-card">
+                        <h4>Зеркальная комната</h4>
+                        <p data-ru="Психологический хоррор. Mal0 — появляется в отражениях, нельзя смотреть в упор" data-en="Psychological horror. Mal0 — appears in reflections, don't stare directly">Psychological horror. Mal0 — appears in reflections, don't stare directly</p>
+                        <div class="characters">👥 Mal0</div>
+                    </div>
+                    <div class="location-card">
+                        <h4>Баскетбольная площадка</h4>
+                        <p data-ru="Симулятор свиданий + мини-игра. Lola Bunny. Баскетбольная мини-игра, диалоги с выбором реплик" data-en="Dating sim + minigame. Lola Bunny. Basketball minigame, dialogue choices">Dating sim + minigame. Lola Bunny. Basketball minigame, dialogue choices</p>
+                        <div class="characters">👥 Lola Bunny</div>
+                    </div>
+                    <div class="location-card">
+                        <h4>Лесной лагерь</h4>
+                        <p data-ru="Классический хоррор. Alexa, Lisa, Nika Sharkeh (в озере). Поиск тотемов" data-en="Classic horror. Alexa, Lisa, Nika Sharkeh (in the lake). Totem search">Classic horror. Alexa, Lisa, Nika Sharkeh (in the lake). Totem search</p>
+                        <div class="characters">👥 Alexa, Lisa, Nika Sharkeh</div>
+                    </div>
+                    <div class="location-card">
+                        <h4>FNAF 1</h4>
+                        <p data-ru="Выживание. Bonnie, Chica, Foxy, Frenni. Камеры, ограниченная энергия" data-en="Survival. Bonnie, Chica, Foxy, Frenni. Cameras, limited power">Survival. Bonnie, Chica, Foxy, Frenni. Cameras, limited power</p>
+                        <div class="characters">👥 Bonnie, Chica, Foxy, Frenni</div>
+                    </div>
+                    <div class="location-card">
+                        <h4>FNAF 2</h4>
+                        <p data-ru="Выживание + головоломка. Toy Chica, Mangle, Puppet. Камеры + музыкальная шкатулка" data-en="Survival + puzzle. Toy Chica, Mangle, Puppet. Cameras + music box">Survival + puzzle. Toy Chica, Mangle, Puppet. Cameras + music box</p>
+                        <div class="characters">👥 Toy Chica, Mangle, Puppet</div>
+                    </div>
+                    <div class="location-card">
+                        <h4>FNAF 5 (Sister Location)</h4>
+                        <p data-ru="Аркада. Funtime Freddy, Funtime Foxy, Bon-Bon, Lolbit. Голосовые команды" data-en="Arcade. Funtime Freddy, Funtime Foxy, Bon-Bon, Lolbit. Voice commands">Arcade. Funtime Freddy, Funtime Foxy, Bon-Bon, Lolbit. Voice commands</p>
+                        <div class="characters">👥 Funtime Freddy, Funtime Foxy, Bon-Bon, Lolbit</div>
+                    </div>
+                    <div class="location-card">
+                        <h4>Лаборатория/Бункер</h4>
+                        <p data-ru="Экшн-платформер. Robo Fortune, Silver, Beast Darling. Ключ-карты, ловушки" data-en="Action platformer. Robo Fortune, Silver, Beast Darling. Keycards, traps">Action platformer. Robo Fortune, Silver, Beast Darling. Keycards, traps</p>
+                        <div class="characters">👥 Robo Fortune, Silver, Beast Darling</div>
+                    </div>
+                    <div class="location-card">
+                        <h4>Рай/Ад (DCT)</h4>
+                        <p data-ru="Головоломка + хоррор. Angel (нейтрал), Corrupt Angel (босс), Darling. Две фазы" data-en="Puzzle + horror. Angel (neutral), Corrupt Angel (boss), Darling. Two phases">Puzzle + horror. Angel (neutral), Corrupt Angel (boss), Darling. Two phases</p>
+                        <div class="characters">👥 Angel, Corrupt Angel, Darling</div>
+                    </div>
+                    <div class="location-card">
+                        <h4>Затопленный маяк</h4>
+                        <p data-ru="Выживание + ресурсы. Nika Sharkeh, Robo Fortune. Вода, приливы, прожектор" data-en="Survival + resources. Nika Sharkeh, Robo Fortune. Water, tides, spotlight">Survival + resources. Nika Sharkeh, Robo Fortune. Water, tides, spotlight</p>
+                        <div class="characters">👥 Nika Sharkeh, Robo Fortune</div>
+                    </div>
+                    <div class="location-card">
+                        <h4>Minecraft (бонус)</h4>
+                        <p data-ru="Платформер + сбор ресурсов. Bia, Jenny. Кубический мир, блоки" data-en="Platformer + resource gathering. Bia, Jenny. Cubic world, blocks">Platformer + resource gathering. Bia, Jenny. Cubic world, blocks</p>
+                        <div class="characters">👥 Bia, Jenny</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Системные требования -->
+            <div class="info-block">
+                <h3 data-ru="💻 Системные требования" data-en="💻 System Requirements">💻 System Requirements</h3>
+                
+                <div class="platform-title">PC</div>
+                <div class="sys-req">
+                    <div>
+                        <h4 data-ru="Минимальные" data-en="Minimum">Minimum</h4>
+                        <p>OS: Windows 7/8/10/11 (64-bit)</p>
+                        <p>CPU: Intel Core i7-2670QM (2.2 ГГц)</p>
+                        <p>RAM: 8 GB</p>
+                        <p>GPU: NVIDIA GeForce GT 540M (1 GB)</p>
+                        <p>Storage: 2 GB HDD/SSD</p>
+                    </div>
+                    <div>
+                        <h4 data-ru="Рекомендуемые" data-en="Recommended">Recommended</h4>
+                        <p>OS: Windows 10/11 (64-bit)</p>
+                        <p>CPU: Intel Core i5 8-го поколения / AMD Ryzen 3</p>
+                        <p>RAM: 8 GB</p>
+                        <p>GPU: GTX 1050 / AMD RX 560</p>
+                        <p>Storage: 2 GB SSD</p>
+                    </div>
+                </div>
+                
+                <div class="platform-title">Android</div>
+                <div class="sys-req">
+                    <div>
+                        <h4 data-ru="Минимальные" data-en="Minimum">Minimum</h4>
+                        <p>OS: Android 8.0 (Oreo)</p>
+                        <p>CPU: 4 ядра, 1.8 ГГц</p>
+                        <p>RAM: 3 GB</p>
+                        <p>GPU: Mali-G52 / Adreno 610</p>
+                        <p>Storage: 1.5 GB</p>
+                    </div>
+                    <div>
+                        <h4 data-ru="Рекомендуемые" data-en="Recommended">Recommended</h4>
+                        <p>OS: Android 11.0</p>
+                        <p>CPU: MediaTek Helio G99 / Snapdragon 680</p>
+                        <p>RAM: 6 GB</p>
+                        <p>GPU: Mali-G57 / Adreno 610</p>
+                        <p>Storage: 1.5 GB</p>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 15px; font-size: 13px; color: #aaa;" data-ru="* Для LAN-мультиплеера требуется подключение к локальной сети" data-en="* LAN multiplayer requires a local network connection">* LAN multiplayer requires a local network connection</p>
+            </div>
+            
+            <!-- Скриншоты -->
+            <h2 data-ru="Скриншоты" data-en="Screenshots">Screenshots</h2>
+            <div class="screenshots" id="screenshots">
+                <p data-ru="Скриншоты появятся позже" data-en="Screenshots will appear here later">Screenshots will appear here later</p>
+            </div>
+            
+            <!-- Кнопка скачать -->
+            <div class="download-section">
+                <a href="#" class="download-btn coming-soon" data-ru="В разработке" data-en="Coming Soon">Coming Soon</a>
+            </div>
+        </main>
+        
+        <footer>
+            <p data-ru="© 2025 FuckFaz Studios. Все права защищены. Только 18+." data-en="© 2025 FuckFaz Studios. All rights reserved. 18+ Only.">© 2025 FuckFaz Studios. All rights reserved. 18+ Only.</p>
+        </footer>
+    </div>
+    
+    <script>
+        if (localStorage.getItem('ageVerified') !== 'true') {
+            window.location.href = 'index.html';
+        }
+        
+        function setLang(lang) {
+            localStorage.setItem('siteLang', lang);
+            location.reload();
+        }
+        
+        function getLang() {
+            return localStorage.getItem('siteLang') || 'en';
+        }
+        
+        function translatePage() {
+            const lang = getLang();
+            document.querySelectorAll('[data-en]').forEach(el => {
+                if (lang === 'ru') {
+                    el.textContent = el.getAttribute('data-ru');
+                } else {
+                    el.textContent = el.getAttribute('data-en');
+                }
+            });
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.style.opacity = btn.classList.contains(lang) ? '1' : '0.6';
+                btn.style.fontWeight = btn.classList.contains(lang) ? 'bold' : 'normal';
+            });
+        }
+        
+        function loadScreenshots() {
+            const container = document.getElementById('screenshots');
+            const screenshots = [
+                // Добавь сюда имена файлов, когда появятся скриншоты
+                // 'screenshot1.jpeg', 'screenshot2.jpeg', 'screenshot3.jpeg'
+            ];
+            
+            if (screenshots.length === 0) return;
+            
+            container.innerHTML = '';
+            screenshots.forEach(img => {
+                const imgEl = document.createElement('img');
+                imgEl.src = `images/screenshots/sweet_torment/${img}`;
+                imgEl.alt = 'Screenshot';
+                container.appendChild(imgEl);
+            });
+        }
+        
+        window.addEventListener('DOMContentLoaded', () => {
+            translatePage();
+            loadScreenshots();
+        });
+    </script>
+</body>
+</html>
