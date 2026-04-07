@@ -227,6 +227,24 @@ h2 {
     transform: scale(1.02);
 }
 
+.telegram-btn {
+    display: inline-block;
+    background: #0088cc;
+    color: #fff;
+    padding: 12px 25px;
+    margin: 5px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.telegram-btn:hover {
+    background: #00aaff;
+    transform: scale(1.02);
+}
+
 .game-detail {
     display: flex;
     gap: 30px;
@@ -391,7 +409,6 @@ footer {
     transform: scale(1.02);
 }
 
-/* Стили для ссылок-карточек игр */
 .game-link {
     text-decoration: none;
     color: inherit;
@@ -475,7 +492,7 @@ footer {
         padding: 10px 25px;
     }
     
-    .tinkoff-btn {
+    .tinkoff-btn, .telegram-btn {
         font-size: 12px;
         padding: 10px 20px;
     }
@@ -506,4 +523,4 @@ footer {
     .hero-text {
         display: none;
     }
-}
+    }
