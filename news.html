@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>News - FuckFaz Studios</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/jpeg" href="images/age_warning.jpeg">
+    <style>
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            margin: 40px 0;
+        }
+        .news-item {
+            background: rgba(0,0,0,0.5);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #ff00aa33;
+            transition: 0.3s;
+        }
+        .news-item:hover {
+            border-color: #ff00aa;
+            transform: translateY(-3px);
+        }
+        .news-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+        }
+        .news-content {
+            padding: 25px;
+        }
+        .news-date {
+            color: #ff88cc;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .news-title {
+            font-size: 28px;
+            color: #ff00aa;
+            margin-bottom: 15px;
+        }
+        .news-text {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .news-text p {
+            margin-bottom: 12px;
+        }
+        @media (max-width: 768px) {
+            .news-title {
+                font-size: 22px;
+            }
+            .news-content {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    
+    <div class="container">
+        <header>
+            <img src="images/studio_logo.jpeg" alt="FuckFaz Studios" class="logo">
+            <nav>
+                <a href="index.html" data-ru="Главная" data-en="Home">Home</a>
+                <a href="games.html" data-ru="Игры" data-en="Games">Games</a>
+                <a href="gallery.html" data-ru="Галерея" data-en="Gallery">Gallery</a>
+                <a href="news.html" class="active" data-ru="Новости" data-en="News">News</a>
+                <a href="#support" class="support-btn" data-ru="Поддержать" data-en="Support">Support</a>
+                <div class="lang-switch">
+                    <button onclick="setLang('ru')" class="lang-btn ru">RU</button>
+                    <button onclick="setLang('en')" class="lang-btn en">EN</button>
+                </div>
+            </nav>
+        </header>
+        
+        <main>
+            <h1 data-ru="Новости" data-en="News">News</h1>
+            
+            <div class="news-list">
+                <!-- Новость 1: Ребрендинг -->
+                <div class="news-item">
+                    <img class="news-image" src="images/news_rebrand.jpeg" alt="Rebranding" onerror="this.src='images/placeholder.jpeg'">
+                    <div class="news-content">
+                        <div class="news-date" data-ru="7 апреля 2026" data-en="April 7, 2026">April 7, 2026</div>
+                        <h2 class="news-title" data-ru="Ребрендинг и запуск сайта" data-en="Rebranding & Website Launch">Rebranding & Website Launch</h2>
+                        <div class="news-text">
+                            <p data-ru="Проект официально переименован в FuckFaz Studios. Старое название уходит в историю — новое имя звучит громче, жестче и честнее." data-en="The project is officially renamed to FuckFaz Studios. The old name is history — the new name sounds louder, tougher, and more honest.">The project is officially renamed to FuckFaz Studios. The old name is history — the new name sounds louder, tougher, and more honest.</p>
+                            <p data-ru="Запущен официальный сайт. Теперь вся информация о проектах, новости и обновления будут публиковаться только там. Один адрес, где есть всё." data-en="The official website is launched. Now all information about projects, news and updates will be published only there. One address where everything is.">The official website is launched. Now all information about projects, news and updates will be published only there. One address where everything is.</p>
+                            <p data-ru="Telegram-канал остается для общих анонсов, но всю детальную информацию и файлы теперь ищите на сайте." data-en="The Telegram channel remains for general announcements, but all detailed information and files now look for on the website.">The Telegram channel remains for general announcements, but all detailed information and files now look for on the website.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Новость 2: Sweet Torment прогресс -->
+                <div class="news-item">
+                    <img class="news-image" src="images/news_progress.jpeg" alt="Sweet Torment Progress" onerror="this.src='images/placeholder.jpeg'">
+                    <div class="news-content">
+                        <div class="news-date" data-ru="7 апреля 2026" data-en="April 7, 2026">April 7, 2026</div>
+                        <h2 class="news-title" data-ru="Sweet Torment: что уже сделано" data-en="Sweet Torment: What's Already Done">Sweet Torment: What's Already Done</h2>
+                        <div class="news-text">
+                            <p data-ru="12 основных локаций + бонус. Система рандомного выбора уровня — каждый запуск разный." data-en="12 main locations + bonus. Random level selection system — every playthrough is different.">12 main locations + bonus. Random level selection system — every playthrough is different.</p>
+                            <p data-ru="LAN кооператив на 2-4 игрока. Играйте с друзьями, спасайте друг друга." data-en="LAN co-op for 2-4 players. Play with friends, save each other.">LAN co-op for 2-4 players. Play with friends, save each other.</p>
+                            <p data-ru="Персонажи: Луна, Хорнет, Baller Fox, Roxanne, Glamrock Chica, Montgomery Gator, Glamrock Freddy, Vanny и другие." data-en="Characters: Loona, Hornet, Baller Fox, Roxanne, Glamrock Chica, Montgomery Gator, Glamrock Freddy, Vanny and others.">Characters: Loona, Hornet, Baller Fox, Roxanne, Glamrock Chica, Montgomery Gator, Glamrock Freddy, Vanny and others.</p>
+                            <p data-ru="Анимации 18+ с качественной озвучкой в работе. У каждой монстрихи своя уникальная сцена." data-en="18+ animations with high-quality voiceover in progress. Each monster has her own unique scene.">18+ animations with high-quality voiceover in progress. Each monster has her own unique scene.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Новость 3: Планы -->
+                <div class="news-item">
+                    <img class="news-image" src="images/news_plans.jpeg" alt="Future Plans" onerror="this.src='images/placeholder.jpeg'">
+                    <div class="news-content">
+                        <div class="news-date" data-ru="7 апреля 2026" data-en="April 7, 2026">April 7, 2026</div>
+                        <h2 class="news-title" data-ru="Планы на ближайшее будущее" data-en="Upcoming Plans">Upcoming Plans</h2>
+                        <div class="news-text">
+                            <p data-ru="Добивка галереи персонажей — новые арты каждую неделю." data-en="Expanding the characters gallery — new art every week.">Expanding the characters gallery — new art every week.</p>
+                            <p data-ru="Доработка ИИ монстров — сделаем их умнее и непредсказуемее." data-en="Improving monster AI — making them smarter and more unpredictable.">Improving monster AI — making them smarter and more unpredictable.</p>
+                            <p data-ru="Тестирование мультиплеера — нужно убедиться, что LAN работает без лагов." data-en="Multiplayer testing — ensuring LAN works without lag.">Multiplayer testing — ensuring LAN works without lag.</p>
+                            <p data-ru="Релиз демо-версии — ориентировочно лето 2026. Следите за новостями!" data-en="Demo release — tentatively summer 2026. Stay tuned!">Demo release — tentatively summer 2026. Stay tuned!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p data-ru="© 2025 FuckFaz Studios. Все права защищены. Только 18+." data-en="© 2025 FuckFaz Studios. All rights reserved. 18+ Only.">© 2025 FuckFaz Studios. All rights reserved. 18+ Only.</p>
+        </footer>
+    </div>
+    
+    <script>
+        if (localStorage.getItem('ageVerified') !== 'true') {
+            window.location.href = 'index.html';
+        }
+        
+        function setLang(lang) {
+            localStorage.setItem('siteLang', lang);
+            location.reload();
+        }
+        
+        function getLang() {
+            return localStorage.getItem('siteLang') || 'en';
+        }
+        
+        function translatePage() {
+            const lang = getLang();
+            document.querySelectorAll('[data-en]').forEach(el => {
+                if (lang === 'ru') {
+                    el.textContent = el.getAttribute('data-ru');
+                } else {
+                    el.textContent = el.getAttribute('data-en');
+                }
+            });
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.style.opacity = btn.classList.contains(lang) ? '1' : '0.6';
+                btn.style.fontWeight = btn.classList.contains(lang) ? 'bold' : 'normal';
+            });
+        }
+        
+        window.addEventListener('DOMContentLoaded', translatePage);
+    </script>
+</body>
+</html>
