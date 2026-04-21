@@ -303,7 +303,7 @@
             <!-- Скриншоты -->
             <h2 data-ru="Скриншоты" data-en="Screenshots">Screenshots</h2>
             <div class="screenshots" id="screenshots">
-                <p data-ru="Скриншоты появятся позже" data-en="Screenshots will appear here later">Screenshots will appear here later</p>
+                <!-- Скриншоты будут загружены через JS -->
             </div>
             
             <!-- Кнопка скачать -->
@@ -349,17 +349,20 @@
         function loadScreenshots() {
             const container = document.getElementById('screenshots');
             const screenshots = [
-                // Добавь сюда имена файлов, когда появятся скриншоты
-                // 'screenshot1.jpeg', 'screenshot2.jpeg', 'screenshot3.jpeg'
+                'Screenshot_20260421-183038.jpg',
+                'Screenshot_20260421-183101.jpg'
             ];
             
-            if (screenshots.length === 0) return;
+            if (screenshots.length === 0) {
+                container.innerHTML = '<p data-ru="Скриншоты появятся позже" data-en="Screenshots will appear here later">Screenshots will appear here later</p>';
+                return;
+            }
             
             container.innerHTML = '';
             screenshots.forEach(img => {
                 const imgEl = document.createElement('img');
                 imgEl.src = `images/screenshots/sweet_torment/${img}`;
-                imgEl.alt = 'Screenshot';
+                imgEl.alt = 'Sweet Torment Screenshot';
                 container.appendChild(imgEl);
             });
         }
@@ -370,4 +373,4 @@
         });
     </script>
 </body>
-                          </html>
+</html>
