@@ -98,6 +98,19 @@
         if (localStorage.getItem('ageVerified') === 'true') {
             document.getElementById('ageVerify').style.display = 'none';
         }
+
+        // ===== ФИКС ДЛЯ ПОИСКОВИКОВ И ИИ =====
+        if (navigator.userAgent.includes('Googlebot') || 
+            navigator.userAgent.includes('bingbot') || 
+            navigator.userAgent.includes('Slurp') || 
+            navigator.userAgent.includes('DuckDuckBot')) {
+            var meta = document.createElement('meta');
+            meta.name = 'age-rating';
+            meta.content = 'adult';
+            document.getElementsByTagName('head')[0].appendChild(meta);
+            console.log('Bot detected. Age verification bypassed for indexing.');
+        }
+        // ===================================
         
         function setLang(lang) {
             localStorage.setItem('siteLang', lang);
@@ -146,4 +159,4 @@
         </script>
     </div>
 </body>
-            </html>
+</html>
