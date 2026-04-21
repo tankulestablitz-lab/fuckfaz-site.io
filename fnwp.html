@@ -142,6 +142,7 @@
                 <a href="index.html" data-ru="Главная" data-en="Home">Home</a>
                 <a href="games.html" data-ru="Игры" data-en="Games">Games</a>
                 <a href="gallery.html" data-ru="Галерея" data-en="Gallery">Gallery</a>
+                <a href="news.html" data-ru="Новости" data-en="News">News</a>
                 <a href="#support" class="support-btn" data-ru="Поддержать" data-en="Support">Support</a>
                 <div class="lang-switch">
                     <button onclick="setLang('ru')" class="lang-btn ru">RU</button>
@@ -273,9 +274,39 @@
     </div>
     
     <script>
+        // Проверка возраста — редирект только если возраст НЕ подтверждён
         if (localStorage.getItem('ageVerified') !== 'true') {
-            window.location.href = 'index.html';
+            if (!window.location.pathname.endsWith('index.html') && window.location.pathname !== '/' && !window.location.pathname.endsWith('/')) {
+                window.location.href = 'index.html';
+            }
         }
+        
+        function verifyAge() {
+            var av = document.getElementById('ageVerify');
+            if (av) {
+                av.style.display = 'none';
+            }
+            localStorage.setItem('ageVerified', 'true');
+        }
+        if (localStorage.getItem('ageVerified') === 'true') {
+            var av = document.getElementById('ageVerify');
+            if (av) {
+                av.style.display = 'none';
+            }
+        }
+
+        // ===== ФИКС ДЛЯ ПОИСКОВИКОВ И ИИ =====
+        if (navigator.userAgent.includes('Googlebot') || 
+            navigator.userAgent.includes('bingbot') || 
+            navigator.userAgent.includes('Slurp') || 
+            navigator.userAgent.includes('DuckDuckBot')) {
+            var meta = document.createElement('meta');
+            meta.name = 'age-rating';
+            meta.content = 'adult';
+            document.getElementsByTagName('head')[0].appendChild(meta);
+            console.log('Bot detected. Age verification bypassed for indexing.');
+        }
+        // ===================================
         
         function setLang(lang) {
             localStorage.setItem('siteLang', lang);
