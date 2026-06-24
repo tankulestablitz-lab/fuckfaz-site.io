@@ -112,18 +112,19 @@
             font-weight: bold;
             font-size: 20px;
             transition: 0.3s;
+            margin: 8px;
         }
         .download-btn:hover {
             background: #ff44cc;
             transform: scale(1.02);
         }
-        .coming-soon {
-            background: #555 !important;
-            cursor: not-allowed !important;
+        .download-btn.disabled {
+            background: #555;
+            cursor: not-allowed;
         }
-        .coming-soon:hover {
-            background: #555 !important;
-            transform: none !important;
+        .download-btn.disabled:hover {
+            background: #555;
+            transform: none;
         }
         @media (max-width: 768px) {
             .location-list {
@@ -302,13 +303,24 @@
             
             <!-- Скриншоты -->
             <h2 data-ru="Скриншоты" data-en="Screenshots">Screenshots</h2>
-            <div class="screenshots" id="screenshots">
-                <!-- Скриншоты будут загружены через JS -->
-            </div>
+            <div class="screenshots" id="screenshots"></div>
             
-            <!-- Кнопка скачать -->
+            <!-- Кнопки скачать -->
             <div class="download-section">
-                <a href="#" class="download-btn coming-soon" data-ru="В разработке" data-en="Coming Soon">Coming Soon</a>
+                <a href="https://drive.google.com/file/d/1A-_DY7GnLlptT_sKlPctEnYoGNgg6-AC/view?usp=drivesdk" 
+                   target="_blank" 
+                   class="download-btn" 
+                   data-ru="📱 Скачать Android" 
+                   data-en="📱 Download Android">
+                    📱 Скачать Android
+                </a>
+                <a href="#" 
+                   class="download-btn disabled" 
+                   data-ru="🖥️ PC версия (временно недоступна)" 
+                   data-en="🖥️ PC version (temporarily unavailable)">
+                    🖥️ PC версия (временно недоступна)
+                </a>
+                <p style="margin-top: 20px; color: #ccc; font-size: 14px;" data-ru="Android-версия уже доступна • PC-версия скоро" data-en="Android version available now • PC version coming soon">Android-версия уже доступна • PC-версия скоро</p>
             </div>
         </main>
         
@@ -318,39 +330,11 @@
     </div>
     
     <script>
-        // Проверка возраста — редирект только если возраст НЕ подтверждён
         if (localStorage.getItem('ageVerified') !== 'true') {
             if (!window.location.pathname.endsWith('index.html') && window.location.pathname !== '/' && !window.location.pathname.endsWith('/')) {
                 window.location.href = 'index.html';
             }
         }
-        
-        function verifyAge() {
-            var av = document.getElementById('ageVerify');
-            if (av) {
-                av.style.display = 'none';
-            }
-            localStorage.setItem('ageVerified', 'true');
-        }
-        if (localStorage.getItem('ageVerified') === 'true') {
-            var av = document.getElementById('ageVerify');
-            if (av) {
-                av.style.display = 'none';
-            }
-        }
-
-        // ===== ФИКС ДЛЯ ПОИСКОВИКОВ И ИИ =====
-        if (navigator.userAgent.includes('Googlebot') || 
-            navigator.userAgent.includes('bingbot') || 
-            navigator.userAgent.includes('Slurp') || 
-            navigator.userAgent.includes('DuckDuckBot')) {
-            var meta = document.createElement('meta');
-            meta.name = 'age-rating';
-            meta.content = 'adult';
-            document.getElementsByTagName('head')[0].appendChild(meta);
-            console.log('Bot detected. Age verification bypassed for indexing.');
-        }
-        // ===================================
         
         function setLang(lang) {
             localStorage.setItem('siteLang', lang);
@@ -365,14 +349,10 @@
             const lang = getLang();
             document.querySelectorAll('[data-en]').forEach(el => {
                 if (lang === 'ru') {
-                    el.textContent = el.getAttribute('data-ru');
+                    el.textContent = el.getAttribute('data-ru') || el.textContent;
                 } else {
-                    el.textContent = el.getAttribute('data-en');
+                    el.textContent = el.getAttribute('data-en') || el.textContent;
                 }
-            });
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.style.opacity = btn.classList.contains(lang) ? '1' : '0.6';
-                btn.style.fontWeight = btn.classList.contains(lang) ? 'bold' : 'normal';
             });
         }
         
@@ -388,12 +368,6 @@
                 'photo_5_2026-04-22_20-41-21.jpg',
                 'photo_6_2026-04-22_20-41-21.jpg'
             ];
-            
-            if (screenshots.length === 0) {
-                container.innerHTML = '<p data-ru="Скриншоты появятся позже" data-en="Screenshots will appear here later">Screenshots will appear here later</p>';
-                return;
-            }
-            
             container.innerHTML = '';
             screenshots.forEach(img => {
                 const imgEl = document.createElement('img');
