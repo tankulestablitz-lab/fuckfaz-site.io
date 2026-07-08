@@ -2,144 +2,184 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Games - FuckFaz Studios</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/jpeg" href="images/age_warning.jpeg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль - FuckHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        body { font-family: system-ui, sans-serif; background: #0a0a0a; color: #ddd; }
+        .platform-btn { transition: all 0.2s; }
+        .platform-btn.active { background-color: #f97316; color: black; font-weight: bold; }
+    </style>
 </head>
-<body>
-    <div class="overlay"></div>
-    
-    <div class="container">
-        <header>
-            <img src="images/studio_logo.jpeg" alt="FuckFaz Studios" class="logo">
-            <nav>
-                <a href="index.html" data-ru="Главная" data-en="Home">Home</a>
-                <a href="games.html" class="active" data-ru="Игры" data-en="Games">Games</a>
-                <a href="gallery.html" data-ru="Галерея" data-en="Gallery">Gallery</a>
-                <a href="news.html" data-ru="Новости" data-en="News">News</a>
-                <a href="#support" class="support-btn" data-ru="Поддержать" data-en="Support">Support</a>
-                <div class="lang-switch">
-                    <button onclick="setLang('ru')" class="lang-btn ru">RU</button>
-                    <button onclick="setLang('en')" class="lang-btn en">EN</button>
-                </div>
-            </nav>
-        </header>
-        
-        <main>
-            <h1 data-ru="Наши игры" data-en="Our Games">Our Games</h1>
+<body class="min-h-screen">
+
+    <nav class="bg-black border-b-4 border-orange-500 p-5">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-black">← FuckHub</a>
+            <span class="text-orange-400 font-bold">Профиль</span>
+        </div>
+    </nav>
+
+    <div class="max-w-4xl mx-auto p-10">
+        <div class="bg-zinc-900 rounded-3xl p-10">
+            <h1 class="text-5xl font-bold text-orange-400 mb-8">Профиль</h1>
             
-            <!-- Sweet Torment -->
-            <div class="game-detail">
-                <img src="images/sweet_torment_art.jpeg" alt="Sweet Torment">
-                <div class="game-info">
-                    <h2 data-ru="Sweet Torment" data-en="Sweet Torment">Sweet Torment</h2>
-                    <p><strong data-ru="Жанр:" data-en="Genre:">Genre:</strong> <span data-ru="Кооперативный хоррор, стелс, симулятор свиданий, шутер" data-en="Co-op horror, stealth, dating sim, shooter">Co-op horror, stealth, dating sim, shooter</span></p>
-                    <p><strong data-ru="Платформы:" data-en="Platform:">Platform:</strong> PC Windows, Android</p>
-                    <p><strong data-ru="Мультиплеер:" data-en="Multiplayer:">Multiplayer:</strong> LAN co-op</p>
-                    <p data-ru="Выживи в готическом особняке. Не дай себя поймать. Если поймают... наслаждайся последствиями." data-en="Survive the gothic mansion. Don't get caught. If you do... enjoy the consequences.">Survive the gothic mansion. Don't get caught. If you do... enjoy the consequences.</p>
-                    <p><strong data-ru="Статус:" data-en="Status:">Status:</strong> <span data-ru="В активной разработке" data-en="In active development">In active development</span></p>
-                    <a href="#" class="download-btn coming-soon" data-ru="В разработке" data-en="Coming Soon">Coming Soon</a>
-                </div>
+            <div class="mb-12 p-6 bg-zinc-800 rounded-2xl">
+                <p class="text-xl"><strong>Никнейм:</strong> <span id="profile-username"></span></p>
+                <p class="text-xl"><strong>Email:</strong> <span id="profile-email"></span></p>
             </div>
-            
-            <!-- FNwP -->
-            <div class="game-detail">
-                <img src="images/fnwp_art.jpg" alt="Five Nights with Prostitutes">
-                <div class="game-info">
-                    <h2 data-ru="Five Nights with Prostitutes" data-en="Five Nights with Prostitutes">Five Nights with Prostitutes</h2>
-                    <p><strong data-ru="Жанр:" data-en="Genre:">Genre:</strong> <span data-ru="Хоррор на выживание" data-en="Survival horror">Survival horror</span></p>
-                    <p><strong data-ru="Платформы:" data-en="Platform:">Platform:</strong> PC Windows, Android</p>
-                    <p><strong data-ru="Мультиплеер:" data-en="Multiplayer:">Multiplayer:</strong> <span data-ru="Одиночная игра" data-en="Single player">Single player</span></p>
-                    <p data-ru="Оригинал. Следи за камерами, управляй энергией, выживи пять ночей. Или не выживи." data-en="The original. Monitor cameras, manage power, survive five nights. Or don't.">The original. Monitor cameras, manage power, survive five nights. Or don't.</p>
-                    <p><strong data-ru="Статус:" data-en="Status:">Status:</strong> <span data-ru="Доступно" data-en="Available">Available</span></p>
-                    <a href="https://drive.google.com/file/d/1vD0moOEbe_vGDYAp2HqFczzWzQ0aMr8C/view?usp=sharing" class="download-btn" data-ru="Скачать" data-en="Download" target="_blank">Download</a>
-                </div>
-            </div>
-            
-            <!-- FNwP Old -->
-            <div class="game-detail">
-                <img src="images/fnwp_art_old.jpg" alt="FNwP Old">
-                <div class="game-info">
-                    <h2 data-ru="FNwP Old" data-en="FNwP Old">FNwP Old</h2>
-                    <p><strong data-ru="Жанр:" data-en="Genre:">Genre:</strong> <span data-ru="Хоррор на выживание" data-en="Survival horror">Survival horror</span></p>
-                    <p><strong data-ru="Платформы:" data-en="Platform:">Platform:</strong> PC Windows, Android</p>
-                    <p><strong data-ru="Мультиплеер:" data-en="Multiplayer:">Multiplayer:</strong> <span data-ru="Одиночная игра" data-en="Single player">Single player</span></p>
-                    <p data-ru="Первая версия. С чего всё начиналось. Классика." data-en="The first version. Where it all began. Classic.">The first version. Where it all began. Classic.</p>
-                    <p><strong data-ru="Статус:" data-en="Status:">Status:</strong> <span data-ru="Доступно" data-en="Available">Available</span></p>
-                    <a href="https://drive.google.com/file/d/1HzhO5tFxhdTUgDJPI6gUVZHsFSwzV59n/view?usp=drivesdk" class="download-btn" data-ru="Скачать" data-en="Download" target="_blank">Download</a>
-                </div>
-            </div>
-        </main>
-        
-        <footer>
-            <p data-ru="© 2025 FuckFaz Studios. Все права защищены. Только 18+." data-en="© 2025 FuckFaz Studios. All rights reserved. 18+ Only.">© 2025 FuckFaz Studios. All rights reserved. 18+ Only.</p>
-        </footer>
+
+            <button onclick="showPublishModal()" class="w-full bg-orange-500 hover:bg-orange-600 text-black font-black text-2xl py-6 rounded-2xl mb-12">
+                + Опубликовать новую игру
+            </button>
+
+            <h2 class="text-3xl font-bold mb-6 text-orange-400">Мои игры</h2>
+            <div id="my-games-list" class="space-y-8"></div>
+        </div>
     </div>
-    
+
+    <!-- MODAL -->
+    <div id="publish-modal" class="hidden fixed inset-0 bg-black/95 flex items-center justify-center z-50">
+        <div class="bg-zinc-900 border border-orange-500 rounded-3xl w-full max-w-2xl p-10">
+            <h2 id="modal-title" class="text-4xl font-bold text-orange-400 mb-8 text-center">Публикация игры</h2>
+            
+            <input id="game-id" type="hidden">
+            <input id="game-title" placeholder="Название игры" class="w-full p-5 bg-zinc-800 rounded-2xl text-lg mb-4">
+            <input id="game-cover" placeholder="Ссылка на обложку" class="w-full p-5 bg-zinc-800 rounded-2xl text-lg mb-4">
+            <textarea id="game-desc" placeholder="Описание" class="w-full p-5 bg-zinc-800 rounded-2xl h-32 mb-6"></textarea>
+            
+            <div class="mb-6">
+                <p class="mb-3">Платформы:</p>
+                <div class="flex gap-3">
+                    <button onclick="togglePlatform(this)" data-platform="PC" class="platform-btn px-6 py-3 bg-zinc-800 rounded-xl">🖥️ PC</button>
+                    <button onclick="togglePlatform(this)" data-platform="Android" class="platform-btn px-6 py-3 bg-zinc-800 rounded-xl">📱 Android</button>
+                    <button onclick="togglePlatform(this)" data-platform="iOS" class="platform-btn px-6 py-3 bg-zinc-800 rounded-xl">🍎 iOS</button>
+                </div>
+            </div>
+            
+            <input id="game-download" placeholder="Ссылка на скачивание" class="w-full p-5 bg-zinc-800 rounded-2xl text-lg mb-8">
+            
+            <div class="flex gap-4">
+                <button onclick="saveGame()" class="flex-1 bg-orange-500 hover:bg-orange-600 text-black font-bold py-5 rounded-2xl">Сохранить</button>
+                <button onclick="hidePublishModal()" class="flex-1 bg-zinc-700 hover:bg-zinc-600 py-5 rounded-2xl">Отмена</button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Проверка возраста — редирект только если возраст НЕ подтверждён
-        if (localStorage.getItem('ageVerified') !== 'true') {
-            // На index.html не редиректим, чтобы не зациклиться
-            if (!window.location.pathname.endsWith('index.html') && window.location.pathname !== '/' && !window.location.pathname.endsWith('/')) {
-                window.location.href = 'index.html';
-            }
+        let supabaseClient, currentUser;
+        let selectedPlatforms = [];
+        let editingGameIndex = -1;
+
+        async function initProfile() {
+            supabaseClient = window.supabase.createClient('https://nuyeqiiopptdykxvurrk.supabase.co', 'sb_publishable_6YKf0lc-mTAB0FdVhQQzcQ_DFttxToY');
+            
+            const { data: { session } } = await supabaseClient.auth.getSession();
+            if (!session) return window.location.href = "index.html";
+
+            currentUser = session.user;
+            document.getElementById('profile-username').textContent = currentUser.user_metadata?.username || currentUser.email;
+            document.getElementById('profile-email').textContent = currentUser.email;
+
+            loadMyGames();
         }
-        
-        function verifyAge() {
-            // Эта функция нужна только на index.html, но пусть будет
-            var av = document.getElementById('ageVerify');
-            if (av) {
-                av.style.display = 'none';
-            }
-            localStorage.setItem('ageVerified', 'true');
+
+        function togglePlatform(btn) {
+            btn.classList.toggle('active');
+            const p = btn.dataset.platform;
+            selectedPlatforms.includes(p) ? selectedPlatforms = selectedPlatforms.filter(x => x !== p) : selectedPlatforms.push(p);
         }
-        // Прячем окно на index.html, если возраст уже подтверждён
-        if (localStorage.getItem('ageVerified') === 'true') {
-            var av = document.getElementById('ageVerify');
-            if (av) {
-                av.style.display = 'none';
+
+        function showPublishModal(editIndex = -1) {
+            document.getElementById('publish-modal').classList.remove('hidden');
+            editingGameIndex = editIndex;
+            document.getElementById('modal-title').textContent = editIndex >= 0 ? "Редактировать игру" : "Новая игра";
+
+            if (editIndex >= 0) {
+                const games = JSON.parse(localStorage.getItem('myGames') || '[]');
+                const g = games[editIndex];
+                document.getElementById('game-title').value = g.title;
+                document.getElementById('game-cover').value = g.cover || '';
+                document.getElementById('game-desc').value = g.desc || '';
+                document.getElementById('game-download').value = g.download || '';
+                selectedPlatforms = g.platforms || [];
+                document.querySelectorAll('.platform-btn').forEach(btn => {
+                    btn.classList.toggle('active', selectedPlatforms.includes(btn.dataset.platform));
+                });
+            } else {
+                document.getElementById('game-title').value = '';
+                document.getElementById('game-cover').value = '';
+                document.getElementById('game-desc').value = '';
+                document.getElementById('game-download').value = '';
+                selectedPlatforms = [];
+                document.querySelectorAll('.platform-btn').forEach(b => b.classList.remove('active'));
             }
         }
 
-        // ===== ФИКС ДЛЯ ПОИСКОВИКОВ И ИИ =====
-        if (navigator.userAgent.includes('Googlebot') || 
-            navigator.userAgent.includes('bingbot') || 
-            navigator.userAgent.includes('Slurp') || 
-            navigator.userAgent.includes('DuckDuckBot')) {
-            var meta = document.createElement('meta');
-            meta.name = 'age-rating';
-            meta.content = 'adult';
-            document.getElementsByTagName('head')[0].appendChild(meta);
-            console.log('Bot detected. Age verification bypassed for indexing.');
+        function hidePublishModal() {
+            document.getElementById('publish-modal').classList.add('hidden');
         }
-        // ===================================
-        
-        function setLang(lang) {
-            localStorage.setItem('siteLang', lang);
-            location.reload();
+
+        function saveGame() {
+            const title = document.getElementById('game-title').value.trim();
+            if (!title) return alert("Название обязательно");
+
+            let games = JSON.parse(localStorage.getItem('myGames') || '[]');
+
+            const gameData = {
+                title,
+                cover: document.getElementById('game-cover').value || 'https://picsum.photos/400/300',
+                desc: document.getElementById('game-desc').value || '',
+                platforms: selectedPlatforms,
+                download: document.getElementById('game-download').value,
+                author: currentUser.user_metadata?.username || currentUser.email,
+                date: new Date().toLocaleDateString('ru-RU')
+            };
+
+            if (editingGameIndex >= 0) {
+                games[editingGameIndex] = gameData;
+            } else {
+                games.push(gameData);
+            }
+
+            localStorage.setItem('myGames', JSON.stringify(games));
+            alert(editingGameIndex >= 0 ? "Игра обновлена!" : "Игра опубликована!");
+            hidePublishModal();
+            loadMyGames();
         }
-        
-        function getLang() {
-            return localStorage.getItem('siteLang') || 'en';
+
+        function loadMyGames() {
+            const container = document.getElementById('my-games-list');
+            const games = JSON.parse(localStorage.getItem('myGames') || '[]');
+            
+            if (games.length === 0) {
+                container.innerHTML = `<p class="text-gray-400">У вас пока нет игр</p>`;
+                return;
+            }
+
+            container.innerHTML = games.map((g, i) => `
+                <div class="bg-zinc-800 rounded-3xl p-6">
+                    <div class="flex gap-6">
+                        <img src="${g.cover}" class="w-32 h-32 object-cover rounded-2xl">
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold">${g.title}</h3>
+                            <p class="text-orange-400 text-sm">Автор: ${g.author}</p>
+                            <p class="text-gray-400 mt-2">${g.desc}</p>
+                            <div class="flex gap-2 mt-3">
+                                ${g.platforms?.map(p => `<span class="bg-zinc-700 px-3 py-1 rounded">${p}</span>`).join('') || ''}
+                            </div>
+                            <div class="mt-6 flex gap-3">
+                                <button onclick="showPublishModal(${i})" class="flex-1 bg-zinc-700 hover:bg-zinc-600 py-3 rounded-2xl">Редактировать</button>
+                                <a href="${g.download}" target="_blank" class="flex-1 text-center bg-orange-500 hover:bg-orange-600 text-black font-bold py-3 rounded-2xl">Скачать</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
         }
-        
-        function translatePage() {
-            const lang = getLang();
-            document.querySelectorAll('[data-en]').forEach(el => {
-                if (lang === 'ru') {
-                    el.textContent = el.getAttribute('data-ru');
-                } else {
-                    el.textContent = el.getAttribute('data-en');
-                }
-            });
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.style.opacity = btn.classList.contains(lang) ? '1' : '0.6';
-                btn.style.fontWeight = btn.classList.contains(lang) ? 'bold' : 'normal';
-            });
-        }
-        
-        window.addEventListener('DOMContentLoaded', translatePage);
+
+        window.onload = initProfile;
     </script>
 </body>
 </html>
